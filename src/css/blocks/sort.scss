@@ -1,0 +1,43 @@
+.sort {
+  padding: 30px;
+  margin: 0;
+  margin-bottom: 50px;
+  border-bottom: 3px solid $text-color;
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.sort__item {
+  margin-right: 30px;
+}
+
+.sort__button {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: 2px solid $text-color;
+  padding: 14px 24px;
+  width: 180px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: 500;
+
+  box-shadow: 3px 3px 5px 3px $background;
+  transition: 0.2s all ease-in-out;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    box-shadow: 2px 2px 3px 2px $background;
+  }
+
+  &:active {
+    box-shadow: none;
+    box-shadow: 2px 2px 3px 2px $background inset;
+  }
+
+  img {
+    margin-right: 20px;
+  }
+}

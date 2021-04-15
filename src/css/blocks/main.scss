@@ -1,0 +1,13 @@
+.main-screen {
+  color: $text-color;
+  padding-bottom: 50px;
+
+  h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 42px;
+    padding: 42px 0;
+    margin: 0;
+    border-bottom: 3px solid $text-color;
+  }
+}
