@@ -64,6 +64,29 @@ body {
   }
 }
 
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate(-51%, -50%);
+  }
+
+  20%,
+  80% {
+    transform: translate(-49%, -50%);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate(-52%, -50%);
+  }
+
+  40%,
+  60% {
+    transform: translate(-48%, -50%);
+  }
+}
+
 @media (max-width: $tablet) {
   .container {
     padding: 0;

@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewCard Render NewCard 1`] = `
+<section
+  className="new-card"
+>
+  <div
+    className="container"
+  >
+    <article
+      className="card-edit"
+    >
+      <h1>
+        New card
+      </h1>
+      <form
+        action="#"
+        className="card-edit__form"
+        onSubmit={[Function]}
+      >
+        <div
+          className="card-edit__item"
+        >
+          <input
+            id="title"
+            onChange={[Function]}
+            placeholder="Add new title"
+            type="text"
+            value=""
+          />
+          <label
+            htmlFor="title"
+          >
+            <span
+              className="visually-hidden"
+            >
+              Title
+            </span>
+          </label>
+        </div>
+        <div
+          className="card-edit__item"
+        >
+          <textarea
+            id="description"
+            onChange={[Function]}
+            placeholder="Add new description"
+            value=""
+          />
+          <label
+            htmlFor="description"
+          >
+            <span
+              className="visually-hidden"
+            >
+              Description
+            </span>
+          </label>
+        </div>
+        <button
+          className="card-edit__submit button"
+          type="submit"
+        >
+          Save
+        </button>
+      </form>
+    </article>
+  </div>
+</section>
+`;

@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditCard Render EditCard 1`] = `
+<section
+  className="edit-card"
+>
+  <div
+    className="container"
+  >
+    <article
+      className="card-edit"
+    >
+      <h1>
+        Card info
+      </h1>
+      <form
+        action="#"
+        className="card-edit__form"
+        onSubmit={[Function]}
+      >
+        <div
+          className="card-edit__item"
+        >
+          <input
+            id="title"
+            onChange={[Function]}
+            placeholder="Add new title"
+            type="text"
+            value="HTML и CSS, уровень 2"
+          />
+          <label
+            htmlFor="title"
+          >
+            <span
+              className="visually-hidden"
+            >
+              Title
+            </span>
+          </label>
+        </div>
+        <div
+          className="card-edit__item"
+        >
+          <textarea
+            id="description"
+            onChange={[Function]}
+            placeholder="Add new description"
+            value="2"
+          />
+          <label
+            htmlFor="description"
+          >
+            <span
+              className="visually-hidden"
+            >
+              Description
+            </span>
+          </label>
+        </div>
+        <div
+          className="card-edit__wrapper"
+        >
+          <button
+            className="card-edit__submit button"
+            type="submit"
+          >
+            Save
+          </button>
+          <button
+            className="card-edit__delete"
+            type="button"
+          >
+            <span>
+              Delete
+            </span>
+            <img
+              alt="DELETE"
+              height="50"
+              onClick={[Function]}
+              src="trash.svg"
+              width="50"
+            />
+          </button>
+        </div>
+      </form>
+    </article>
+  </div>
+</section>
+`;

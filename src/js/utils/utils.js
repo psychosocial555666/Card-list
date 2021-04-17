@@ -30,7 +30,16 @@ export const updateCardItem = (cards, card, data) => {
 
   let newCards = cards.slice(0, cards.length);
   newCards.splice(index, 1, newCard);
-  debugger
+
+  return newCards;
+}
+
+export const deleteCardItem = (cards, card) => {
+  let index = cards.findIndex((item) => {return item.id === card.id});
+
+  let newCards = cards.slice(0, cards.length);
+  newCards.splice(index, 1);
+
   return newCards;
 }
 
@@ -38,4 +47,6 @@ export const pushNewCard = (cards, newCard) => {
   let newCards = cards.concat(newCard);
   return newCards;
 };
+
+export const noop = () => {};
 

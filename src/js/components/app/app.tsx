@@ -13,10 +13,12 @@ function App() {
         <Route exact path="/">
           <Main />
         </Route>
-        <Route exact path="/new">
+        <Route 
+        exact path="/new"
+        >
           <NewCard />
         </Route>
-        <Route exact path="/edit">
+        <Route path="/edit/:id">
           <EditCard />
         </Route>
       </Switch>

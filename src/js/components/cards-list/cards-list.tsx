@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { getCardsList } from '../../reducer/data/selectors';
 import { ActionCreator as ActionCreatorDATA } from "../../reducer/data/data";
-import { ActionCreator as ActionCreatorUI } from "../../reducer/ui/ui";
 import { connect } from "react-redux";
 import { Card } from '../../types';
 import edit from '../../../img/pencil-square.svg';
@@ -15,7 +14,6 @@ let moment = require('moment');
 interface Props {
   cards: Card[];
   updateCards: (cards: Card[], isNeedToSave: boolean) => void;
-  setCurrentCard: (card: Card) => void;
 }
 
 class CardsList extends React.PureComponent<Props, {}> {
@@ -35,7 +33,7 @@ class CardsList extends React.PureComponent<Props, {}> {
   }
 
   render() {
-    const { cards, setCurrentCard } = this.props;
+    const { cards } = this.props;
 
     return (
       <ul className="main-screen__list cards-list">
@@ -50,9 +48,8 @@ class CardsList extends React.PureComponent<Props, {}> {
               <h2>{item.title}</h2>
               <p>{item.description}</p>
               <div className="card__controls">
-                <Link to="/edit" 
+                <Link to={`/edit/${item.id}`} 
                   className="card__edit"
-                  onClick={() =>{setCurrentCard(item)}}
                   >
                   <span className="visually-hidden">Edit</span>
                   <img src={edit} alt="Edit" width="30" height="30" />
@@ -84,9 +81,6 @@ const mapStateToProps = (state: any) => ({
 const mapDispatchToProps = (dispatch: (arg0: any) => void) => ({
   updateCards(cards: any, isNeedToSave: boolean) {
     dispatch(ActionCreatorDATA.updateCards(cards, isNeedToSave));
-  },
-  setCurrentCard(card: Card) {
-    dispatch(ActionCreatorUI.setCurrentCard(card));
   },
 });
 

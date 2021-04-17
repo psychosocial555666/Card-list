@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sort Render Sort 1`] = `
+<ul
+  className="main-screen__sort sort"
+>
+  <li
+    className="sort__item"
+  >
+    <button
+      className="sort__button"
+      onClick={[Function]}
+      type="button"
+    >
+      <img
+        alt="New first"
+        src="arrow-up.svg"
+      />
+      <span>
+        New first
+      </span>
+    </button>
+  </li>
+  <li
+    className="sort__item"
+  >
+    <button
+      className="sort__button"
+      onClick={[Function]}
+      type="button"
+    >
+      <img
+        alt="Old first"
+        src="arrow-down.svg"
+      />
+      <span>
+        Old first
+      </span>
+    </button>
+  </li>
+</ul>
+`;
