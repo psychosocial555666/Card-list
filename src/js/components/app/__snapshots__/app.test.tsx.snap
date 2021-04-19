@@ -1,0 +1,296 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Render App 1`] = `
+<section
+  className="main-screen"
+>
+  <div
+    className="container"
+  >
+    <h1>
+      Cards list
+    </h1>
+    <ul
+      className="main-screen__sort sort"
+    >
+      <li
+        className="sort__item"
+      >
+        <button
+          className="sort__button"
+          onClick={[Function]}
+          type="button"
+        >
+          <img
+            alt="New first"
+            src="arrow-up.svg"
+          />
+          <span>
+            New first
+          </span>
+        </button>
+      </li>
+      <li
+        className="sort__item"
+      >
+        <button
+          className="sort__button"
+          onClick={[Function]}
+          type="button"
+        >
+          <img
+            alt="Old first"
+            src="arrow-down.svg"
+          />
+          <span>
+            Old first
+          </span>
+        </button>
+      </li>
+    </ul>
+    <ul
+      className="main-screen__list cards-list"
+    >
+      <li
+        className="cards-list__item card card--new"
+      >
+        <a
+          href="/new"
+          onClick={[Function]}
+        >
+          <img
+            alt="Add new card"
+            height="70"
+            src="plus.svg"
+            width="70"
+          />
+        </a>
+      </li>
+      <li
+        className="cards-list__item card"
+      >
+        <h2>
+          HTML и CSS, уровень 2
+        </h2>
+        <p>
+          2
+        </p>
+        <div
+          className="card__controls"
+        >
+          <a
+            className="card__edit"
+            href="/edit/1vIfYnxecu4dIX_mB9Lzo"
+            onClick={[Function]}
+          >
+            <span
+              className="visually-hidden"
+            >
+              Edit
+            </span>
+            <img
+              alt="Edit"
+              height="30"
+              src="pencil-square.svg"
+              width="30"
+            />
+          </a>
+          <div
+            className="card__like"
+          >
+            <input
+              checked={false}
+              className="visually-hidden"
+              id="like 1vIfYnxecu4dIX_mB9Lzo"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor="like 1vIfYnxecu4dIX_mB9Lzo"
+            >
+              <span
+                className="visually-hidden"
+              >
+                Like
+              </span>
+            </label>
+          </div>
+        </div>
+        <span
+          className="card__time"
+        >
+          06:41 16 April 2021
+        </span>
+      </li>
+      <li
+        className="cards-list__item card"
+      >
+        <h2>
+          JavaScript, уровень 1
+        </h2>
+        <p>
+          3
+        </p>
+        <div
+          className="card__controls"
+        >
+          <a
+            className="card__edit"
+            href="/edit/rOjKRPYaDR6LtrTfEWkMD"
+            onClick={[Function]}
+          >
+            <span
+              className="visually-hidden"
+            >
+              Edit
+            </span>
+            <img
+              alt="Edit"
+              height="30"
+              src="pencil-square.svg"
+              width="30"
+            />
+          </a>
+          <div
+            className="card__like"
+          >
+            <input
+              checked={false}
+              className="visually-hidden"
+              id="like rOjKRPYaDR6LtrTfEWkMD"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor="like rOjKRPYaDR6LtrTfEWkMD"
+            >
+              <span
+                className="visually-hidden"
+              >
+                Like
+              </span>
+            </label>
+          </div>
+        </div>
+        <span
+          className="card__time"
+        >
+          06:41 16 April 2021
+        </span>
+      </li>
+      <li
+        className="cards-list__item card"
+      >
+        <h2>
+          Профессия Фронтэнд разработчик
+        </h2>
+        <p>
+          4
+        </p>
+        <div
+          className="card__controls"
+        >
+          <a
+            className="card__edit"
+            href="/edit/8aBwJ6yriZdQusLFBMA56"
+            onClick={[Function]}
+          >
+            <span
+              className="visually-hidden"
+            >
+              Edit
+            </span>
+            <img
+              alt="Edit"
+              height="30"
+              src="pencil-square.svg"
+              width="30"
+            />
+          </a>
+          <div
+            className="card__like"
+          >
+            <input
+              checked={false}
+              className="visually-hidden"
+              id="like 8aBwJ6yriZdQusLFBMA56"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor="like 8aBwJ6yriZdQusLFBMA56"
+            >
+              <span
+                className="visually-hidden"
+              >
+                Like
+              </span>
+            </label>
+          </div>
+        </div>
+        <span
+          className="card__time"
+        >
+          06:41 16 April 2021
+        </span>
+      </li>
+      <li
+        className="cards-list__item card"
+      >
+        <h2>
+          JavaScript, уровень 2
+        </h2>
+        <p>
+          5
+        </p>
+        <div
+          className="card__controls"
+        >
+          <a
+            className="card__edit"
+            href="/edit/m6T_3u7kf13vOPpmdQkTZ"
+            onClick={[Function]}
+          >
+            <span
+              className="visually-hidden"
+            >
+              Edit
+            </span>
+            <img
+              alt="Edit"
+              height="30"
+              src="pencil-square.svg"
+              width="30"
+            />
+          </a>
+          <div
+            className="card__like"
+          >
+            <input
+              checked={false}
+              className="visually-hidden"
+              id="like m6T_3u7kf13vOPpmdQkTZ"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor="like m6T_3u7kf13vOPpmdQkTZ"
+            >
+              <span
+                className="visually-hidden"
+              >
+                Like
+              </span>
+            </label>
+          </div>
+        </div>
+        <span
+          className="card__time"
+        >
+          06:41 16 April 2021
+        </span>
+      </li>
+    </ul>
+  </div>
+</section>
+`;

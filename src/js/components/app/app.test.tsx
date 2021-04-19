@@ -2,6 +2,7 @@ import * as renderer from "react-test-renderer";
 import App from "./app";
 import configureStore from "redux-mock-store";
 import { Provider } from "react-redux";
+import NameSpace from "../../reducer/name-space";
 
 
 const mockStore = configureStore([]);
@@ -16,7 +17,9 @@ const cards = [
 describe(`App`, () => {
   it(`Render App`, () => {
     const store = mockStore({
-      cards: cards,
+      [NameSpace.DATA]: {
+        cards: cards,
+      },
     });
     const tree = renderer
       .create(

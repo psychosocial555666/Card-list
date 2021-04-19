@@ -20,6 +20,9 @@ interface State {
   currentCard: object;
   description: string;
   thereIsUnsavedData: boolean;
+  isTitleValid: boolean;
+  isDescriptionValid: boolean;
+  isFormValid: boolean;
 }
 
 class EditCard extends React.PureComponent<Props, State, {}> {
@@ -32,6 +35,9 @@ class EditCard extends React.PureComponent<Props, State, {}> {
       description: '',
       currentCard: {},
       thereIsUnsavedData: true,
+      isTitleValid: true,
+      isDescriptionValid: true,
+      isFormValid: true,
     }
 
     this._titleChangeHandler = this._titleChangeHandler.bind(this);
@@ -46,11 +52,11 @@ class EditCard extends React.PureComponent<Props, State, {}> {
 
     let currentCard = cards.find((item) => {
       return item.id === this.props.match.params.id
-    }) 
+    })
 
-    
 
-    if(currentCard) {
+
+    if (currentCard) {
       this.setState(
         {
           title: currentCard.title,
@@ -82,18 +88,33 @@ class EditCard extends React.PureComponent<Props, State, {}> {
   _checkFormValidity() {
     let title = this.state.title;
     let description = this.state.description;
-    if (checkTitleValidity(title) && description.length !== 0) {
-      return true;
+
+    if (!checkTitleValidity(title)) {
+      this.setState({ isTitleValid: false });
+      return false;
+    } else {
+      this.setState({
+        isTitleValid: true,
+      });
     }
 
-    return false;
+    if (!description) {
+      this.setState({ isDescriptionValid: false });
+      return false;
+    } else {
+      this.setState({
+        isDescriptionValid: true,
+      });
+    }
+
+    return true;
   }
 
   _deleteButtonClickHandler() {
     this.setState({ thereIsUnsavedData: false });
 
     const { cards, updateCards } = this.props;
-    const {currentCard} = this.state;
+    const { currentCard } = this.state;
 
     let newCards = deleteCardItem(cards, currentCard,);
     updateCards(newCards, true);
@@ -102,7 +123,7 @@ class EditCard extends React.PureComponent<Props, State, {}> {
   _formSubmitHandler(evt: { preventDefault: () => void; }) {
     evt.preventDefault();
     const { cards, updateCards } = this.props;
-    const {currentCard} = this.state;
+    const { currentCard } = this.state;
     let title = this.state.title;
     let description = this.state.description;
 
@@ -116,25 +137,29 @@ class EditCard extends React.PureComponent<Props, State, {}> {
       let newCards = updateCardItem(cards, currentCard, newData);
       updateCards(newCards, true);
     } else {
-      console.log("Wrong!!!")
+      this.setState({ isFormValid: false });
+      setTimeout(() => { this.setState({ isFormValid: true }) }, 1200)
     }
   }
 
   render() {
+
+    const { thereIsUnsavedData, isTitleValid, isDescriptionValid, isFormValid } = this.state;
+
     return (
       <React.Fragment>
         <Prompt
-          when={this.state.thereIsUnsavedData === true}
+          when={thereIsUnsavedData === true}
           message='You have unsaved changes, are you sure you want to leave?'
         />
         <section className="edit-card">
           <div className="container">
             <article className="card-edit">
               <h1>Card info</h1>
-              <form action="#" className="card-edit__form"
+              <form action="#" className={isFormValid ? "card-edit__form" : "card-edit__form card-edit__form--invalid"}
                 onSubmit={this._formSubmitHandler}
               >
-                <div className="card-edit__item">
+                <div className={isTitleValid ? "card-edit__item" : "card-edit__item card-edit__item--invalid"}>
                   <input type="text"
                     id="title"
                     placeholder="Add new title"
@@ -143,7 +168,7 @@ class EditCard extends React.PureComponent<Props, State, {}> {
                   />
                   <label htmlFor="title"><span className="visually-hidden">Title</span></label>
                 </div>
-                <div className="card-edit__item">
+                <div className={isDescriptionValid ? "card-edit__item" : "card-edit__item card-edit__item--invalid"}>
                   <textarea id="description"
                     placeholder="Add new description"
                     onChange={this._descriptionChangeHandler}

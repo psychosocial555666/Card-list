@@ -1,5 +1,5 @@
 import { cards } from "../../mock";
-import { extend, getDataFromStorage, saveDataToStarage } from "../../utils/utils";
+import { extend, getDataFromStorage, saveDataToStorage } from "../../utils/utils";
 
 
 const ActionType = {
@@ -14,7 +14,7 @@ const ActionCreator = {
 
   updateCards: (cards, isNeedToSave) => ({
     type: ActionType.UPDATE_CARDS,
-    payload: saveDataToStarage(cards, isNeedToSave),
+    payload: saveDataToStorage(cards, isNeedToSave),
   }),
 };
 

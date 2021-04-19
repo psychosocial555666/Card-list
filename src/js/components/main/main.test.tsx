@@ -4,6 +4,7 @@ import configureStore from "redux-mock-store";
 import { Provider } from "react-redux";
 import { Router } from "react-router";
 import history from "../../history";
+import NameSpace from "../../reducer/name-space";
 
 
 const mockStore = configureStore([]);
@@ -18,8 +19,10 @@ const cards = [
 describe(`Main`, () => {
   it(`Render Main`, () => {
     const store = mockStore({
-      cards: cards,
-      updateCards: () => { },
+      [NameSpace.DATA]: {
+        cards: cards,
+        updateCards: () => { },
+      },
     });
     const tree = renderer
       .create(
@@ -34,7 +37,6 @@ describe(`Main`, () => {
           }
         })
       .toJSON();
-        debugger;
     expect(tree).toMatchSnapshot();
   });
 });

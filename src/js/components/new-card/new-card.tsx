@@ -18,6 +18,9 @@ interface State {
   title: string;
   description: string;
   thereIsUnsavedData: boolean;
+  isTitleValid: boolean;
+  isDescriptionValid: boolean;
+  isFormValid: boolean;
 }
 
 class NewCard extends React.PureComponent<Props, State, {}> {
@@ -29,6 +32,9 @@ class NewCard extends React.PureComponent<Props, State, {}> {
       title: '',
       description: '',
       thereIsUnsavedData: true,
+      isTitleValid: true,
+      isDescriptionValid: true,
+      isFormValid: true,
     }
 
     this._titleChangeHandler = this._titleChangeHandler.bind(this);
@@ -38,7 +44,7 @@ class NewCard extends React.PureComponent<Props, State, {}> {
   }
 
   componentDidUpdate() {
-    this.state.thereIsUnsavedData ?  null : this.props.history.push('/');
+    this.state.thereIsUnsavedData ? null : this.props.history.push('/');
   }
 
   _titleChangeHandler(evt: { target: { value: string; }; }) {
@@ -52,11 +58,26 @@ class NewCard extends React.PureComponent<Props, State, {}> {
   _checkFormValidity() {
     let title = this.state.title;
     let description = this.state.description;
-    if (checkTitleValidity(title) && description.length !== 0) {
-      return true;
+
+    if (!checkTitleValidity(title)) {
+      this.setState({ isTitleValid: false });
+      return false;
+    } else {
+      this.setState({
+        isTitleValid: true,
+      });
     }
 
-    return false;
+    if (!description) {
+      this.setState({ isDescriptionValid: false });
+      return false;
+    } else {
+      this.setState({
+        isDescriptionValid: true,
+      });
+    }
+
+    return true;
   }
 
   _formSubmitHandler(evt: { preventDefault: () => void; }) {
@@ -67,7 +88,7 @@ class NewCard extends React.PureComponent<Props, State, {}> {
     let description = this.state.description;
 
     if (this._checkFormValidity()) {
-      this.setState({thereIsUnsavedData: false});
+      this.setState({ thereIsUnsavedData: false });
       newCard = {
         id: nanoid(),
         title: title,
@@ -80,25 +101,28 @@ class NewCard extends React.PureComponent<Props, State, {}> {
       updateCards(newCards, true);
 
     } else {
-      console.log("Wrong!!!")
+      this.setState({ isFormValid: false });
+      setTimeout(() => { this.setState({ isFormValid: true }) }, 1200)
     }
   }
 
   render() {
+    const { thereIsUnsavedData, isTitleValid, isDescriptionValid, isFormValid } = this.state;
+
     return (
       <React.Fragment>
         <Prompt
-          when={this.state.thereIsUnsavedData === true}
+          when={thereIsUnsavedData === true}
           message='You have unsaved changes, are you sure you want to leave?'
         />
         <section className="new-card">
           <div className="container">
             <article className="card-edit">
               <h1>New card</h1>
-              <form action="#" className="card-edit__form"
+              <form action="#" className={isFormValid ? "card-edit__form" : "card-edit__form card-edit__form--invalid"}
                 onSubmit={this._formSubmitHandler}
               >
-                <div className="card-edit__item">
+                <div className={isTitleValid ? "card-edit__item" : "card-edit__item card-edit__item--invalid"}>
                   <input type="text"
                     id="title"
                     placeholder="Add new title"
@@ -107,7 +131,7 @@ class NewCard extends React.PureComponent<Props, State, {}> {
                   />
                   <label htmlFor="title"><span className="visually-hidden">Title</span></label>
                 </div>
-                <div className="card-edit__item">
+                <div className={isDescriptionValid ? "card-edit__item" : "card-edit__item card-edit__item--invalid"}>
                   <textarea id="description"
                     placeholder="Add new description"
                     onChange={this._descriptionChangeHandler}

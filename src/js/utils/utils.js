@@ -10,7 +10,7 @@ export const checkTitleValidity = (value) => {
   return false;
 };
 
-export const saveDataToStarage = (data, needToSave) => {
+export const saveDataToStorage = (data, needToSave) => {
   let storage = window.localStorage;
 
   needToSave ? storage.setItem('cards', JSON.stringify(data)) : '';

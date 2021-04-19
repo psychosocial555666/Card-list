@@ -43,6 +43,10 @@
   }
 }
 
+.card-edit__form--invalid {
+  animation: shake 1s;
+}
+
 .card-edit__item {
   width: 100%;
   margin: 0;
@@ -61,6 +65,16 @@
   textarea {
     resize: none;
     height: 200px;
+  }
+}
+
+.card-edit__item--invalid {
+
+  input,
+  textarea {
+    border: 2px solid red;
+    box-shadow: 2px 2px 3px 2px $background inset,
+      0 0 3px 2px red;
   }
 }
 
@@ -106,7 +120,7 @@
     transition: 0.3s all ease-in-out;
   }
 
-  &:hover, 
+  &:hover,
   &:focus {
     span {
       top: 55px;
@@ -116,32 +130,4 @@
       top: 0;
     }
   }
-}
-
-.card-edit__warning {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: $white;
-  padding: 30px;
-  border: 3px solid $text-color;
-  box-shadow: 3px 3px 5px 3px $background;
-  z-index: 10;
-  border-radius: 10px;
-  animation: shake 0.7s;
-
-  p {
-    width: 100%;
-    font-size: 24px;
-    text-align: center;
-    font-weight: 700;
-  }
-}
-
-.card-edit__confirm {
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }

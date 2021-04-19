@@ -7,7 +7,6 @@ import up from '../../../img/arrow-up.svg';
 import down from '../../../img/arrow-down.svg';
 import { SortTypes } from '../../const';
 import * as Moment from 'moment';
-
 let moment = require('moment');
 
 
