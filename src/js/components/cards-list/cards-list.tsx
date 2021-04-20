@@ -7,8 +7,6 @@ import edit from '../../../img/pencil-square.svg';
 import plus from '../../../img/plus.svg';
 import { Link } from 'react-router-dom';
 import { extend } from '../../utils/utils';
-import * as Moment from 'moment';
-
 let moment = require('moment');
 
 interface Props {

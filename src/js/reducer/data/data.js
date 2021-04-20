@@ -1,4 +1,3 @@
-import { cards } from "../../mock";
 import { extend, getDataFromStorage, saveDataToStorage } from "../../utils/utils";
 
 

@@ -4,10 +4,7 @@ export const extend = (a, b) => {
 };
 
 export const checkTitleValidity = (value) => {
-  if (4 < value.length && value.length <= 255) {
-    return true;
-  }
-  return false;
+  return 4 < value.length && value.length <= 255
 };
 
 export const saveDataToStorage = (data, needToSave) => {
@@ -16,13 +13,13 @@ export const saveDataToStorage = (data, needToSave) => {
   needToSave ? storage.setItem('cards', JSON.stringify(data)) : '';
 
   return data;
-}
+};
 
 export const getDataFromStorage = () => {
   let storage = window.localStorage;
 
   return storage.cards ? JSON.parse(storage.cards) : [];
-}
+};
 
 export const updateCardItem = (cards, card, data) => {
   let newCard = extend(card, data);
@@ -32,7 +29,7 @@ export const updateCardItem = (cards, card, data) => {
   newCards.splice(index, 1, newCard);
 
   return newCards;
-}
+};
 
 export const deleteCardItem = (cards, card) => {
   let index = cards.findIndex((item) => {return item.id === card.id});
@@ -41,11 +38,10 @@ export const deleteCardItem = (cards, card) => {
   newCards.splice(index, 1);
 
   return newCards;
-}
+};
 
 export const pushNewCard = (cards, newCard) => {
-  let newCards = cards.concat(newCard);
-  return newCards;
+  return cards.concat(newCard);
 };
 
 export const noop = () => {};

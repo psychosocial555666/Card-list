@@ -76,7 +76,6 @@ class NewCard extends React.PureComponent<Props, State, {}> {
         isDescriptionValid: true,
       });
     }
-
     return true;
   }
 
@@ -112,7 +111,7 @@ class NewCard extends React.PureComponent<Props, State, {}> {
     return (
       <React.Fragment>
         <Prompt
-          when={thereIsUnsavedData === true}
+          when={thereIsUnsavedData}
           message='You have unsaved changes, are you sure you want to leave?'
         />
         <section className="new-card">
